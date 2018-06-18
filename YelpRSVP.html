@@ -4,77 +4,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yelp</title>
 <meta name="Description" content="">
-
-<link rel="stylesheet" href="css/grid-system.css">
-<link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/lp_rsvp.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
 <div>
-
-    <!-- DO NOT COPY THIS CODE - MODULE TITLE FOR PRESENTATION -->
-    <div style="padding:5px;color:#869689;background-color:#c5f7ce;text-align:center;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:18px;line-height:22px;font-style:italic;border:2px dashed #c5dbc9;">Section:<br />Header</div>
-    <!-- /DO NOT COPY THIS CODE - MODULE TITLE FOR PRESENTATION -->
-
     <!--header-->
     <header id="header">
-    <div class="grid--wrap center md-grid--1of2 headline">
-        <div class="grid-cell">
-        <img src="http://image.e.yelp-business.com/lib/fe5915707c6207757012/m/1/04c8ffa4-ca5d-4dae-a163-23d3ce81927a.png" alt="Yelp" class="logo-main" />
-        </div>
-        <div class="grid-cell txt-align--right">
-            <p class="padding-top--s"><a href="https://www.yelpreservations.com/how-it-works" class="headerlink">Contact <img class="arrow" src="http://image.e.yelp-business.com/lib/fe5915707c6207757012/m/1/38825cd6-f53d-441c-9952-ebcec4ca8378.png"> </a></p>
-        </div>
-    </div>
-    <div class="header center">
-        <div class="headline">
-            <h1 class="font-white">Headline</h1>
-            <p class="font-white hide">Body copy (max 2 lines).</p>
-        </div>
-        <div class="form1">
-            <!--form-->
-
-
-            <form method="post" id="idForm-01" action="">
-            <h2 class="font-red txt-align--center">Headline</h2>
-            <p class="txt-align--center">Complete this form and die a happy person<br />__________________ will be in touch.</p>
-            <div class="grid--gutters max-width--800 center">
-            <div class="grid-cell">
-            <label>Business Name</label>
-            <input class="form-control" name="businessname" id="businessname" placeholder="" value="" required>
-            </div>
-            <div class="grid-cell">
-            <label>What's your role?</label>
-            <input class="form-control" name="role" id="role" placeholder="" value="" required>
-            </div>
-            <div class="grid-cell">
-            <label>First &amp; last name</label>
-            <input class="form-control" name="name" id="name" placeholder="" type="email" value="" required>
-            </div>
-            <div class="grid-cell">
-            <label>Phone number</label>
-            <input class="form-control" name="phone" id="phone" placeholder="" value="" required>
-            </div>
-            <div class="grid-cell">
-            <label>Email address</label>
-            <input class="form-control" name="email" id="email" placeholder="" value="" required>
-            </div>
-            </div>
-            <div class="grid--wrap grid--full grid--gutters max-width--800 center">
-            <div class="grid-cell txt-align--center">
-            <input type="submit" value="Submit" name="submit" id="submit" class="submitbtn">
-            </div>
-            </div>
-            </form>
-            <!--/form-->
+    <div class="headline">
+        <div>
+        <img src="images/yelp-logo.png" alt="Yelp" />
+        <h1>Dinner with Yelp: Consumer Trends, Insights &amp; Analysis</h1>
+        <p><span class="fnt-bold">June 11, 2018,</span> <span class="fnt-light">[City Name]</span></p>
+        <a href="#hidden-form" ><button onclick="myFunction()">RSVP</button></a>
         </div>
     </div>
     </header>
     <!--header-->
 
-    <!-- DO NOT COPY THIS CODE - MODULE TITLE FOR PRESENTATION -->
-    <div style="padding:5px;color:#869689;background-color:#c5f7ce;text-align:center;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:18px;line-height:22px;font-style:italic;border:2px dashed #c5dbc9;">Section:<br />2 Column with White Background Stacking Image over Copy</div>
-    <!-- /DO NOT COPY THIS CODE - MODULE TITLE FOR PRESENTATION -->
+    <!--form-->
+    <a id="hidden-form"></a>
+    <div id="hidden-form" class="hidden-form">
+        <h2>JOIN US!</h2>
+        <hr />
+        <p>Please fill out your information below to register for this event.</p>
+
+        <form method="post" id="idForm-02" action="">
+        <div class="form-container">
+
+            <div class="form-container1">
+            <label>First*</label>
+            <input class="form-control" name="name" id="firstName" placeholder="" value="" required>
+            <label>Last*</label>
+            <input class="form-control" name="name" id="lastName" placeholder="" value="" required>
+            </div>
+            <div class="form-container2">
+            <label>Title*</label>
+            <input class="form-control" name="name" id="title" placeholder="" value="" required>
+            <label>Company*</label>
+            <input class="form-control" name="businessname" id="company" placeholder="" value="" required>
+            </div>
+            <div class="form-container3">
+            <label>Email*</label>
+            <input class="form-control" name="email" id="email" placeholder="" value="" type="email" required>
+            <label>Phone*</label>
+            <input class="form-control" name="phone" id="phone" placeholder="" value="" required>
+            </div>
+            
+        </div>
+        <div class="center">
+            <div class="">
+            <input type="submit" value="RSVP" name="submit" id="submit" class="submitbtn">
+            </div>
+        </div>
+        </form>
+    </div>
+    <!--form-->
 
     <!--two column rtl -->
     <div class="grid--wrap grid--full large-grid--1of2 grid--gutters intro-block center" dir="rtl">
@@ -284,47 +270,7 @@
     </div>
     <!--/three column centered with grey bg-->
 
-    <!-- DO NOT COPY THIS CODE - MODULE TITLE FOR PRESENTATION -->
-    <div style="padding:5px;color:#869689;background-color:#c5f7ce;text-align:center;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:18px;line-height:22px;font-style:italic;border:2px dashed #c5dbc9;">Section:<br />Form 2</div>
-    <!-- /DO NOT COPY THIS CODE - MODULE TITLE FOR PRESENTATION -->
-
-    <!-- form 2-->
-    <div class="section-padding">
-            <h2 class="font-drk-grey txt-align--center">Headline</h2>
-            <p class="txt-align--center">Complete this form and a<br />__________________ will be in touch.</p>
-
-            <form method="post" id="idForm-02" action="">
-            <div class="grid--wrap grid--full small-grid--1of2 grid--gutters padding-top--s">
-                <div class="grid-cell">
-                <label>First &amp; last name</label>
-                <input class="form-control" name="name" id="name" placeholder="" value="" required>
-                </div>
-                <div class="grid-cell">
-                <label>Business Name</label>
-                <input class="form-control" name="businessname" id="businessname" placeholder="" value="" required>
-                </div>
-                <div class="grid-cell">
-                <label>Phone number</label>
-                <input class="form-control" name="phone" id="phone" placeholder="" value="" required>
-                </div>
-                <div class="grid-cell">
-                <label>What's your role?</label>
-                <input class="form-control" name="role" id="role" placeholder="" value="" required>
-                </div>
-                <div class="grid-cell">
-                <label>Email address</label>
-                <input class="form-control" name="email" id="email" placeholder="" value="" type="email" required>
-                </div>
-            </div>
-            <div class="grid--wrap grid--full grid--gutters max-width--800 center">
-                <div class="grid-cell txt-align--center">
-                <input type="submit" value="Submit" name="submit" id="submit" class="submitbtn">
-                </div>
-            </div>
-            </form>
-            <!--/form-->
-    </div>
-    <!--/form 2-->
+   
 
     <!-- DO NOT COPY THIS CODE - MODULE TITLE FOR PRESENTATION -->
     <div style="padding:5px;color:#869689;background-color:#c5f7ce;text-align:center;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:18px;line-height:22px;font-style:italic;border:2px dashed #c5dbc9;">Section:<br />Form 3</div>
@@ -411,48 +357,10 @@
 </div>
 
 <script>
-        new Vue({
-        el: '#app',
-        data: {
-            showComponent1:true,
-            showComponent2:false,
-            showComponent3:false,
-            currentComponent:1
-        }, 
-        methods:{
-            previousComponent(){
-                if(this.currentComponent==1){
-                    this.currentComponent=3;
-                    this.showComponent3=true;
-                    this.showComponent1=false;
-                }else if(this.currentComponent==3){
-                    this.currentComponent=2;
-                    this.showComponent2=true;
-                    this.showComponent3=false;
-                }else if(this.currentComponent==2){
-                    this.currentComponent=1;
-                    this.showComponent1=true;
-                    this.showComponent2=false;
-                }
-            },
-            nextComponent(){
-                if(this.currentComponent==1){
-                    this.currentComponent=2;
-                    this.showComponent2=true;
-                    this.showComponent1=false;
-                }else if(this.currentComponent==2){
-                    this.currentComponent=3;
-                    this.showComponent2=false;
-                    this.showComponent3=true;
-                }else if(this.currentComponent==3){
-                    this.currentComponent=1;
-                    this.showComponent1=true;
-                    this.showComponent3=false;
-                }
-            }
-        }
-
-        })
+function myFunction() {
+    div = document.getElementById('hidden-form');
+    div.style.display = "block";
+}
 </script>
 </body>
 </html>
