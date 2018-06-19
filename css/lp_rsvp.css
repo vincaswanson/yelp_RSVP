@@ -63,18 +63,11 @@ hr {
 }
 
 /*___________ BACKGROUND IMAGES _______________*/
-.bg-img--1 {
-  background-image: url(http://image.e.yelp-business.com/lib/fe5915707c6207757012/m/2/ba15d197-1e24-42e4-8f69-9c744febf9f6.jpg); 
-  background-position: center center;
-  background-repeat:no-repeat;
-  background-size: cover;
-  min-height: 411px;
-}
+
 
 /*______________ HEADER ______________*/
 
 header .headline {
-  /* background-color: #333;*/
   background-image: 
   url(../images/hero2x.png);
   background-position: center center;
@@ -130,6 +123,9 @@ header button:hover {
 }
 
 @media screen and (min-width: 480px){
+  header .headline div {
+  text-align: center;
+}
   header img {margin:0 auto;}
   header .headline h1, p {text-align: center;}
 }
@@ -152,6 +148,7 @@ header button:hover {
 .hidden-form p {
   color:#666;
   font-size: 15px;
+  line-height: 21px;
   padding-bottom:40px;
 }
 
@@ -166,8 +163,6 @@ header button:hover {
 
 label{
   color:#272425;
-  font-size: 15px;
-  line-height: 21px;
 }
 
 .form-control {
@@ -219,36 +214,85 @@ a.submitbtn:hover {
 
 @media screen and (min-width: 480px){
   .form-container {
-  display: grid;
-  grid-gap: 2em;
-  grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 1fr 1fr 1fr;
+    }
   }
+
+/*________ 1 COLUMN SECTION ______________*/
+.one-col {
+  background-color:#F5F5F5;
+  padding:90px 0;
+}
+.one-col div {
+  margin:0 auto;
+  max-width: 800px;
+  padding:0 5%;
+  text-align: center;
+}
+.one-col h2 {
+  color:#D22323;
+  margin-bottom: 45px;
 }
 
-/*________ 2 COLUMN MODULES ______________*/
-
+/*________ 2 COLUMN SECTION ______________*/
 .two-col {
-  /*padding:90px 30px;*/
-  padding: 90px 18%;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-@media (max-width: 960px){
+.two-col > .container1 {
+  background-image: url(http://image.e.yelp-business.com/lib/fe5915707c6207757012/m/2/ba15d197-1e24-42e4-8f69-9c744febf9f6.jpg); 
+  background-position: center center;
+  background-repeat:no-repeat;
+  background-size: cover;
+  min-height: 450px;
+}
+.two-col > .container2 {
+  margin:0 1em;
+  padding:90px 0;
+}
+.two-col > .container2 h2 {
+  margin:0;
+}
+.two-col > .container2 h2, p {
+  text-align: left;
+}
+.two-col > .container2 p:last-child {
+  padding-top:30px;
+}
+@media (min-width: 480px){
   .two-col {
-    padding: 90px 2%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   }
+  .two-col > .container1 {
+  min-height: 200px;}
 }
 
-/*_________3 and 4 COLUMN MODULES _____________*/
-.section-three-col {
-  padding:70px 30px;
+/*________ 3 COLUMN SECTION ______________*/
+.three-col-section {
+  margin:90px 0;
 }
 .three-col {
-  padding:30px;
+  display: grid;
+  grid-gap: .2em;
+  grid-template-columns: 1fr;
 }
-.col-cell {
-  padding:30px;
+.three-col h2 {
+  margin-bottom: 45px;
 }
-.col--headline{
-  padding-bottom:15px;
+.copy-container {
+  margin:6% 5%;
+}
+@media (min-width: 580px){
+  .three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  }
+  .copy-container {
+  margin:6% 14%;
+  }
 }
 
 /*______________ BUTTONS ______________*/
