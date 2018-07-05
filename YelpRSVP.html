@@ -2,22 +2,53 @@
 <html lang="en-us">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yelp</title>
-<meta name="Description" content="">
+<title>Yelp</title> <!--CHANGE PAGE TITLE HERE-->
+<meta name="Description" content="Dinner with Yelp..."><!--UPDATE SEO DESCRIPTON HERE-->
+
+<!--FACEBOOK og tags-->
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Yelp RSVP Event" /><!--CHANGE PAGE TITLE HERE-->
+<meta property="og:description" content="Dinner with Yelp..." /><!--UPDATE DESCRIPTON HERE-->
+<meta property="og:url" content="/" />
+<meta property="og:site_name" content="Yelp RSVP Event" /><!--UPDATE SITE NAME HERE-->
+<meta property="og:image" content="images/primary-01.png" /><!--UPDATE IMAGE HERE-->
+<meta property="og:image:width" content="709" />
+<meta property="og:image:height" content="400" />
+
+<!--TWITTER tags-->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Dinner with Yelp..." /><!--UPDATE DESCRIPTON HERE-->
+<meta name="twitter:title" content="Yelp RSVP Event" /><!--CHANGE PAGE TITLE HERE-->
+<meta name="twitter:image" content="images/primary-01.png" /><!--UPDATE IMAGE HERE-->
+
+<!--SCHEMA-->
+<!--UPDATES SAME AS ABOVE-->
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Restaurant",
+  "name" : "Yelp Reservations Calculator",
+  "description": "Dinner with Yelp...",
+  "image" : "images/primary-01.png"
+}
+</script>
+
+
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/lp_rsvp.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
-<div>
+<div id="app">
     <!--header-->
     <header id="header">
     <div class="headline">
         <div>
         <img src="images/yelp-logo.png" alt="Yelp" />
         <h1>Dinner with Yelp: Consumer Trends, Insights &amp; Analysis</h1>
-        <p><span class="fnt-bold">June 11, 2018,</span> <span class="fnt-light">[City Name]</span></p>
-        <a href="#hidden-form" ><button onclick="myFunction()">RSVP</button></a>
+        <p class="header-p"><span class="fnt-bold">June 11, 2018,</span> <span class="fnt-light">[City Name]</span></p>
+        <a href="#hidden-form"><button id="rsvp-btn" @click="showForm = true" v-bind:class="{'content-open': showForm }">RSVP</button></a>
         </div>
     </div>
     </header>
@@ -25,46 +56,58 @@
     
     <!--form-->
     <a id="hidden-form"></a>
-    <div id="hidden-form" class="hidden-form">
+    <div id="hidden-form" class="hidden-form" v-if="showForm">
         <h2>JOIN US!</h2>
         <hr />
-        <p>Please fill out your information below to register for this event.</p>
+        <p class="subtext">Please fill out your information below to register for this event.</p>
+            <form method="post" class="rsvp-form" action="" novalidate="true">
+                <div class="form-container">
+                    <div class="form-container1">
+                        <label class="fntbold">First
+                            <input class="form-control" aria-label="First name" name="firstName" id="firstName" placeholder="" type="text" value="" v-model="firstName">
+                        </label>
+                        <p class="error-message">{{firstNameError}}</p>
+                        <label class="fntbold">Last
+                            <input class="form-control" aria-label="Last name" name="lastName" id="lastName" placeholder="" type="text" value="" v-model="lastName">
+                        </label>
+                        <p class="error-message">{{lastNameError}}</p>
+                    </div>
+                    <div class="form-container2">
+                        <label class="fntbold">Title
+                            <input class="form-control" aria-label="Title" name="titleTitle" id="titleTitle" placeholder="" type="text" value="" v-model="titleTitle">
+                        </label>
+                        <p class="error-message">{{titleError}}</p>
 
-        <form method="post" id="idForm-02" action="">
-        <div class="form-container">
-            <div class="form-container1">
-            <label>First*</label>
-            <input class="form-control" name="name" id="firstName" placeholder="" value="" required>
-            <label>Last*</label>
-            <input class="form-control" name="name" id="lastName" placeholder="" value="" required>
-            </div>
-            <div class="form-container2">
-            <label>Title*</label>
-            <input class="form-control" name="name" id="title" placeholder="" value="" required>
-            <label>Company*</label>
-            <input class="form-control" name="businessname" id="company" placeholder="" value="" required>
-            </div>
-            <div class="form-container3">
-            <label>Email*</label>
-            <input class="form-control" name="email" id="email" placeholder="" value="" type="email" required>
-            <label>Phone*</label>
-            <input class="form-control" name="phone" id="phone" placeholder="" value="" required>
-            </div>
-        </div>
-        <div class="center">
-            <div class="">
-            <input type="submit" value="RSVP" name="submit" id="submit" class="submitbtn">
-            </div>
-        </div>
-        </form>
+                        <label class="fntbold">Company
+                            <input class="form-control" aria-label="Company Name" name="companyName" id="companyName" placeholder="" type="text" value="" v-model="companyName">
+                        </label>
+                        <p class="error-message">{{companyNameError}}</p>
+                    </div>
+                    <div class="form-container3">
+                        <label class="fntbold">Email
+                            <input class="form-control" aria-label="Email" name="emailAddress" id="emailAddress" placeholder="" type="text" value="email" v-model="emailAddress">
+                        </label>
+                        <p class="error-message">{{emailAddressError}}</p>
+
+                        <label class="fntbold">Phone
+                            <input class="form-control" aria-label="Phone" name="phoneNumber" id="phoneNumber" placeholder="" type="text" value="" v-model="phoneNumber">
+                        </label>
+                        <p class="error-message">{{phoneNumberError}}</p>
+                    </div>
+                </div>
+                <div class="center">
+                <input aria-label="Submit" type="submit" value="SUBMIT" name="savings" id="savings" class="submitbtn" v-on:click="submitForm">
+                </div>
+            </form>
     </div>
+    <a id="hidden-form-b"></a>
     <!--form-->
     
     <!--centered one column-->
     <section class="one-col">
         <div>
-        <h2>WHAT TO EXPECT</h2>
-        <p>Centered paragraph 1... Should not be more than 5 lines<br />
+        <h2 class="one-col-h2">WHAT TO EXPECT</h2>
+        <p class="one-col-p">Centered paragraph 1... Should not be more than 5 lines<br />
         5 lines<br />
         5 lines<br />
         5 lines<br />
@@ -81,13 +124,13 @@
         </div>
         <div class="container2">
             <div>
-            <h2>ABOUT THE VENUE</h2>
-            <p>Left aligned paragraph 1... Should not be more than <br />
+            <h2 class="two-col-h2">ABOUT THE VENUE 2</h2>
+            <p class="two-col-p">Left aligned paragraph 1... Should not be more than <br />
             5 lines<br />
             5 lines<br />
             5 lines<br />
             5 lines</p>
-            <p>Left aligned paragraph 1... Should not be more than <br />
+            <p class="two-col-p">Left aligned paragraph 1... Should not be more than <br />
             5 lines<br />
             5 lines<br />
             5 lines<br />
@@ -101,13 +144,13 @@
     <!--three column -->
     <section>
     <div class="three-col-section">
-    <h2>ABOUT THE VENUE</h2>
+    <h2 class="three-col-h2">ABOUT THE VENUE 3</h2>
     <div class="three-col">
         <div class="container1">
             <div>
             <img src="http://image.e.yelp-business.com/lib/fe5915707c6207757012/m/2/ba15d197-1e24-42e4-8f69-9c744febf9f6.jpg" alt="" />
                 <div class="copy-container">
-                <p>Left aligned paragraph 1... Should not be more than <br />
+                <p class="three-col-p">Left aligned paragraph 1... Should not be more than <br />
                 5 lines<br />
                 5 lines<br />
                 5 lines<br />
@@ -119,7 +162,7 @@
             <div>
             <img src="http://image.e.yelp-business.com/lib/fe5915707c6207757012/m/2/ba15d197-1e24-42e4-8f69-9c744febf9f6.jpg" alt="" />
                 <div class="copy-container">
-                <p>Left aligned paragraph 1... Should not be more than <br />
+                <p class="three-col-p">Left aligned paragraph 1... Should not be more than <br />
                 5 lines<br />
                 5 lines<br />
                 5 lines<br />
@@ -131,7 +174,7 @@
             <div>
             <img src="http://image.e.yelp-business.com/lib/fe5915707c6207757012/m/2/ba15d197-1e24-42e4-8f69-9c744febf9f6.jpg" alt="" />
                 <div class="copy-container">
-                <p>Left aligned paragraph 1... Should not be more than <br />
+                <p class="three-col-p">Left aligned paragraph 1... Should not be more than <br />
                 5 lines<br />
                 5 lines<br />
                 5 lines<br />
@@ -143,27 +186,343 @@
     </div>
     </section>
     <!--/three column -->
+
+    <!--three column with avatars -->
+    <section>
+    <div class="three-col-section-avatar">
+    <h2>THE YELP TEAM</h2>
+    <div class="three-col">
+        <div class="container1">
+            <div>
+            <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+                <div class="copy-container">
+                <h3>NAME</h3>
+                <p class="center">Position</p>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div>
+            <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+                <div class="copy-container">
+                <h3>NAME</h3>
+                <p class="center">Position</p>
+                </div>
+            </div>
+        </div>
+        <div class="container3">
+            <div>
+            <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+                <div class="copy-container">
+                <h3>NAME</h3>
+                <p class="center">Position</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+    <!--/three column with avatars-->
+
+    <!--four column with avatars -->
+    <section>
+    <div class="four-col-section-avatar">
+    <h2>THE YELP TEAM</h2>
+    <div class="four-col">
+        <div class="container1">
+            <div>
+            <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+                <div class="copy-container">
+                <h3>NAME</h3>
+                <p class="center">Position</p>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div>
+            <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+                <div class="copy-container">
+                <h3>NAME</h3>
+                <p class="center">Position</p>
+                </div>
+            </div>
+        </div>
+        <div class="container3">
+            <div>
+            <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+                <div class="copy-container">
+                <h3>NAME</h3>
+                <p class="center">Position</p>
+                </div>
+            </div>
+        </div>
+        <div class="container4">
+            <div>
+            <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+                <div class="copy-container">
+                <h3>NAME</h3>
+                <p class="center">Position</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+    <!--/four column-->
+
+    <!--left aligned one column-->
+    <section class="one-col-left">
+        <div>
+        <h2>PROGRAM</h2>
+            <div class="program-info">
+            <p class="fnt-bold">#:## pm - #:## pm</p>
+            <p>Information 1 line</p>
+            <p class="fnt-bold">Location</p>
+            <hr>
+            </div>
+            <div class="program-info">
+            <p class="fnt-bold">#:## pm - #:## pm</p>
+            <p>Information 1 line</p>
+            <p class="fnt-bold">Location</p>
+            <hr>
+            </div>
+            <div class="program-info">
+            <p class="fnt-bold">#:## pm - #:## pm</p>
+            <p>Information 1 line</p>
+            <p class="fnt-bold">Location</p>
+            </div>
+        </div>
+    </section>
+    <!--left aligned one column-->
+
+    <!--two column google map -->
+    <section>
+    <div class="two-col-map">
+        <div class="container1-map">
+        &nbsp;
+        </div>
+        <div class="container2-map">
+            <div>
+            <h2>LOCATION</h2>
+            <h3><img src="images/icon-pin.png" class="location-icon" />Venu Name</h3>
+            <p>Address</p>
+            <ul>
+            <li>The information on this point may extend to two lines</li>
+            <li>The information on this point may extend to two lines</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--/two column google map -->
+
+    <!--two column testimonial -->
+    <section>
+    <div class="testimonials">
+        <div class="two-col-testimonial">
+            <div class="container1">
+                <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+            </div>
+            <div class="container2">
+                <div>
+                <blockquote>&ldquo; Insert quote in this line. Should be max 1 to 2 lines.&rdquo;</blockquote>
+                <h3>NAME</h3>
+                <p>Position at work</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-container-hide">
+            <div class="container1">
+                <img src="http://via.placeholder.com/122x122" alt="" class="avatar1" />
+            </div>
+            <div class="container2">
+                <div>
+                <blockquote>&ldquo; Insert quote in this line. Should be max 1 to 2 lines.&rdquo;</blockquote>
+                <h3>NAME</h3>
+                <p>Position at work</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--/two column testimonial -->
+
+    <!--bottom header-->
+    <section class="bottom-header">
+    <div class="bottom-headline">
+        
+        <h1>JOIN US!</h1>
+        <a href="#hidden-form-b"><button id="rsvp-btn" @click="showForm = true" v-bind:class="{'content-open': showForm }">RSVP</button></a>
+        
+    </div>
+    </section>
+    <!--bottom header-->
     
     <footer>
     <div class="grid--wrap grid--full">
         <div class="grid-cell">
         <ul>
-        <li><a href="#">Make a Reservation</a></li>
-        <li><a href="#">Support</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
         <li>Questions? 1-888-254-5315</li>
         </ul>
         </div>
     </div>
     </footer>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-function myFunction() {
-    div = document.getElementById('hidden-form');
-    div.style.display = "block";
+    var app = new Vue({
+        el: '#app',
+        data: {
+            error: false,
+            showForm: false,
+            firstName: '',
+            firstNameError: '',
+            lastName: '',
+            lastNameError: '',
+            titleTitle: '',
+            titleError: '',
+            companyName: '',
+            companyNameError: '',
+            emailAddress: '',
+            emailAddressError: '',
+            phoneNumber: '',
+            phoneNumberError: '',
+            
+        },
+        methods: {
+            checkForm:function(e) {
+                if(this.firstName === '' || this.firstName === null) {
+                        this.firstNameError = "enter your first name";
+                        this.error = true;
+                };
+                if(this.lastName === '' || this.lastName === null) {
+                        this.lastNameError = "enter your last name";
+                        this.error = true;
+                };
+                if(this.titleTitle === '' || this.titleTitle === null) {
+                        this.titleError = "enter your title";
+                        this.error = true;
+                };
+                if(this.companyName === '' || this.companyName === null) {
+                        this.companyNameError = "enter your company name";
+                        this.error = true;
+                };
+                if(this.emailAddress === '' || this.emailAddress===null) {
+                        this.emailAddressError = "enter your email address";
+                        this.error = true;
+                } else {
+                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    if (!re.test(this.emailAddress)) {
+                        this.emailAddressError = "enter a valid email address";
+                        this.error = true;                        
+                    }
+                }
+                if(this.phoneNumber === '' || isNaN(parseFloat(this.phoneNumber))) {
+                        this.phoneNumberError = "enter your phone number (000-000-0000)";
+                        this.error = true;
+                };
+            },
+            submitForm: function (e) {
+                e.preventDefault();
+                this.clearErrors();
+                this.checkForm();
+                let firsttName = parseFloat( this.firsttName );
+                let lasttName = parseFloat( this.lastName );
+                let titleTitle = parseFloat( this.titleTitle );
+                let companyName = parseFloat( this.companyName );
+                let emailAddress = parseFloat( this.emailAddress );
+                let phoneNumber = parseFloat( this.phoneNumber );
+            },
+            clearErrors: function (){
+                this.error = false;
+                this.firstNameError = '';
+                this.lastNameError = '';
+                this.titleTitleError = '';
+                this.companyNameError = '';
+                this.emailAddressError = '';
+                this.phoneNumberError = '';
+            },
+        }
+    })
+</script>
+<!--smooth scroll-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+// Select all links with hashes
+$('a[href*="#"]')
+// Remove links that don't actually link to anything
+.not('[href="#"]')
+.not('[href="#0"]')
+.click(function(event) {
+// On-page links
+if (
+  location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+  && 
+  location.hostname == this.hostname
+) {
+  // Figure out element to scroll to
+  var target = $(this.hash);
+  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+  // Does a scroll target exist?
+  if (target.length) {
+    // Only prevent default if animation is actually gonna happen
+    event.preventDefault();
+    $('html, body').animate({
+      scrollTop: target.offset().top
+    }, 500, function() {
+      // Callback after animation
+      // Must change focus!
+      var $target = $(target);
+      $target.focus();
+      if ($target.is(":focus")) { // Checking if the target was focused
+        return false;
+      } else {
+        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+        $target.focus(); // Set focus again
+      };
+    });
+  }
 }
+});
+$('a[href*="#hidden-form-b"]')
+// Remove links that don't actually link to anything
+.not('[href="#"]')
+.not('[href="#0"]')
+.click(function(event) {
+// On-page links
+if (
+  location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+  && 
+  location.hostname == this.hostname
+) {
+  // Figure out element to scroll to
+  var target = $(this.hash);
+  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+  // Does a scroll target exist?
+  if (target.length) {
+    // Only prevent default if animation is actually gonna happen
+    event.preventDefault();
+    $('html, body').animate({
+      scrollBottom: target.offset().top
+    }, 500, function() {
+      // Callback after animation
+      // Must change focus!
+      var $target = $(target);
+      $target.focus();
+      if ($target.is(":focus")) { // Checking if the target was focused
+        return false;
+      } else {
+        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+        $target.focus(); // Set focus again
+      };
+    });
+  }
+}
+});
 </script>
 </body>
 </html>
