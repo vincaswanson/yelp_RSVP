@@ -78,6 +78,11 @@ p {
   color:#d22323;
 }
 
+.fnt-white {
+  color:#fff;
+}
+
+.fnt20 {font-size:20px;line-height: 32px;}
 
 
 /*______________ HEADER ______________*/
@@ -130,7 +135,7 @@ header button {
   font-size: 30px;
   height: 54px;
   margin: 0 auto;
-  margin-bottom: 90px;
+  margin-bottom: 45px;
   position:relative;
   padding: 5px 76px;
   text-decoration: none;
@@ -143,12 +148,16 @@ header button:hover {
 @media screen and (min-width: 480px){
   header .headline div {
   text-align: center;
-}
+  padding:0 3%;
+  }
   header img {margin:0 auto;}
   header .headline h1 {text-align: center;}
   header h1 {font-size:44px;line-height: 52px;}
   header .header-p {text-align: center;font-size:30px;
   line-height: 36px;}
+  header button {
+  margin-bottom: 90px;
+  }
 }
 
 /*_____________HIDDEN FORM______________*/
@@ -158,7 +167,7 @@ header button:hover {
   margin:0 auto;
 }
 .hidden-form {
-  margin:75px auto;
+  margin:45px auto;
   padding:0 5%;
 }
 .hidden-form hr {
@@ -250,6 +259,9 @@ a.submitbtn:hover {
     grid-gap: 2em;
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .hidden-form {
+  margin:75px auto;
+  }
   .hidden-form h2 {
   text-align: center;
   }
@@ -261,7 +273,7 @@ a.submitbtn:hover {
 /*________ 1 COLUMN CENTERED SECTION ______________*/
 .one-col {
   background-color:#f5f5f5;
-  padding:90px 0;
+  padding:45px 0;
 }
 .one-col div {
   margin:0 auto;
@@ -274,11 +286,47 @@ a.submitbtn:hover {
 }
 .one-col-h2, .one-col-p {
     text-align: left;
-  }
+}
+.one-col-p {
+    font-size:19px;
+    line-height: 26px;
+}
 
 @media (min-width: 580px){
+  .one-col {
+  padding:90px 0;
+  }
   .one-col-h2, .one-col-p {
     text-align: center;
+  }
+}
+
+/*________ 1 COLUMN LEFT ALIGNED SECTION ______________*/
+.one-col-left {
+  background-color:#fff;
+  padding:45px 0;
+}
+.one-col-left div {
+  margin:0 auto;
+  max-width: 1000px;
+  padding:0 5%;
+}
+.program-info p{
+  text-align: left;
+}
+.program-info p:nth-child(n+2) {
+  margin-left:2em;
+}
+.program-info hr {
+  margin:37px 0;
+}
+
+@media (min-width: 580px){
+  .one-col-left {
+  padding:90px 0;
+  }
+  .one-col-left h2 {
+    text-align: left;
   }
 }
 
@@ -295,10 +343,10 @@ a.submitbtn:hover {
   min-height: 450px;
 }
 .two-col .container2 {
-  margin:0 1em;
-  padding:90px 0;
+  margin:0 5%;
+  padding:45px 0;
 }
-.two-col-h2, .two-col-p {
+.two-col-p {
   text-align: left;
 }
 .two-col .container2 p:last-child {
@@ -309,13 +357,19 @@ a.submitbtn:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   }
+  .two-col .container2 {
+  padding:90px 1em;
+  }
   .two-col .container1 {
   min-height: 200px;}
+  .two-col-h2 {
+    text-align: left;
+  }
 }
 
 /*________ 3 COLUMN SECTION ______________*/
 .three-col-section {
-  padding:90px 0;
+  padding:45px 0;
   padding-bottom:70px;
 }
 .three-col {
@@ -330,7 +384,7 @@ a.submitbtn:hover {
   margin-left:5%;
   margin-right:5%;
 }
-.three-col-h2, .three-col-p {
+.three-col-p {
   text-align: left;
 }
 @media (min-width: 620px){
@@ -347,9 +401,12 @@ a.submitbtn:hover {
 }
 
 /*________ 3 COLUMN AVATAR SECTION ______________*/
+.three-col-section {
+  padding:45px 0;
+}
 .three-col-section-avatar {
   background-color:#f5f5f5;
-  padding:90px 0;
+  padding:45px 0;
 }
 .three-col-section-avatar .three-col {
   display: grid;
@@ -370,6 +427,12 @@ a.submitbtn:hover {
   margin:6% 5%;
 }
 @media (min-width: 580px){
+  .three-col-section {
+  padding:90px 0;
+  }
+  .three-col-section-avatar {
+  padding:90px 0;
+  }
   .three-col-section-avatar .three-col {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -382,7 +445,7 @@ a.submitbtn:hover {
 /*________ 4 COLUMN SECTION ______________*/
 .four-col-section-avatar {
   background-color:#f5f5f5;
-  padding:90px 0;
+  padding:45px 0;
 }
 .four-col-section-avatar .four-col {
   display: grid;
@@ -403,41 +466,15 @@ a.submitbtn:hover {
   margin:6% 5%;
 }
 @media (min-width: 580px){
+  .four-col-section-avatar {
+  padding:90px 0;
+  }
   .four-col-section-avatar .four-col {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   .four-col-section-avatar .copy-container {
   margin:6% 14%;
-  }
-}
-
-/*________ 1 COLUMN LEFT ALIGNED SECTION ______________*/
-.one-col-left {
-  background-color:#fff;
-  padding:90px 0;
-}
-.one-col-left div {
-  margin:0 auto;
-  max-width: 1000px;
-  padding:0 5%;
-}
-.one-col-left h2 {
-  text-align: left;
-}
-.program-info p{
-  text-align: left;
-}
-.program-info p:nth-child(n+2) {
-  margin-left:2em;
-}
-.program-info hr {
-  margin:37px 0;
-}
-
-@media (min-width: 580px){
-  .one-col-left h2 {
-    text-align: center;
   }
 }
 
@@ -460,16 +497,18 @@ a.submitbtn:hover {
   min-height: 450px;
 }
 .two-col-map .container2-map {
-  margin:0 5%;
-  padding:90px 0;
+  margin:0 6% 0 5%;
+  padding:45px 0;
 }
-.two-col-map .container2-map h2, p {
+.two-col-map .container2-map p {
   text-align: left;
 }
 .two-col-map .container2-map h2 {
   color:#d22323;
 }
 .two-col-map .container2-map h3 {
+  font-size:22px;
+  line-height: 30px;
   text-align: left;
 }
 .two-col-map .container2-map p {
@@ -486,7 +525,7 @@ a.submitbtn:hover {
  margin-left:1em;
 }
 .location-icon {
-  width:22px;
+  width:27px;
   display: inline-block;
   padding-right:10px;
 }
@@ -496,13 +535,18 @@ a.submitbtn:hover {
   grid-template-columns: 1fr 1fr;
   }
   .two-col-map .container1-map {
-  min-height: 200px;}
+  min-height: 200px;
+  }
+  .two-col-map .container2-map {
+    padding:90px 0;
+  }
+  .container2-map h2 {text-align: left;}
 }
 
 
 /*________ 2 COLUMN TESTIMONIAL SECTION ______________*/
 .testimonials {
-  padding:90px 0;
+  padding:45px 0;
 }
 .two-col-testimonial, .testimonial-container-hide {
   display: grid;
@@ -536,6 +580,9 @@ a.submitbtn:hover {
 }
 
 @media (min-width: 580px){
+  .testimonials {
+  padding:90px 0;
+  }
   .two-col-testimonial, .testimonial-container-hide {
   grid-template-columns: 30% 70%;
   margin:0 auto;
@@ -559,11 +606,11 @@ a.submitbtn:hover {
   padding-top:45px;
   }
   .testimonial-container-hide .container2 {
-  padding:0 20px;
+  padding:0 5%;
   }
   .testimonial-container-hide h3, p {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 22px;
   }
   .testimonial-container-hide .container1 img {
   text-align: right;
@@ -593,10 +640,10 @@ a.submitbtn:hover {
   -o-background-size: cover;
 }
 
-.bottom-header h1 {
+.bottom-header h2 {
   color:#fff;
   text-align: center;
-  padding-bottom:45px;
+  margin-bottom:25px;
 }
 
 .bottom-header div {
@@ -629,6 +676,7 @@ a.submitbtn:hover {
   .bottom-header .headline div {
   text-align: center;
   }
+  .bottom-header h2 {font-size:44px;margin-bottom: 45px;}
   .bottom-header img {margin:0 auto;}
 }
 

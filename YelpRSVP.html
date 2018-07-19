@@ -47,7 +47,7 @@
         <div>
         <img src="images/yelp-logo.png" alt="Yelp" />
         <h1>Dinner with Yelp: Consumer Trends, Insights &amp; Analysis</h1>
-        <p class="header-p"><span class="fnt-bold">June 11, 2018,</span> <span class="fnt-light">[City Name]</span></p>
+        <p class="header-p"><span class="fnt-bold">June 11, 2018,</span> [City Name]</p>
         <a href="#hidden-form"><button id="rsvp-btn" @click="showForm = true" v-bind:class="{'content-open': showForm }">RSVP</button></a>
         </div>
     </div>
@@ -107,14 +107,35 @@
     <section class="one-col">
         <div>
         <h2 class="one-col-h2">WHAT TO EXPECT</h2>
-        <p class="one-col-p">Centered paragraph 1... Should not be more than 5 lines<br />
-        5 lines<br />
-        5 lines<br />
-        5 lines<br />
-        5 lines</p>
+        <p class="one-col-p">Font size is 19px, line-height is 26px.<br />Centered paragraph 1... Should not be more than 5 lines. Centered paragraph 1... Should not be more than 5 lines. Centered paragraph 1... Should not be more than 5 lines. Centered paragraph 1... Should not be more than 5 lines. Centered paragraph 1... Should not be more than 5 lines. Centered paragraph 1... </p>
         </div>
     </section>
     <!--centered one column-->
+
+    <!--left aligned one column-->
+    <section class="one-col-left">
+        <div>
+        <h2>PROGRAM</h2>
+            <div class="program-info">
+            <p class="fnt-bold fnt20">#:## pm - #:## pm</p>
+            <p>Information 1 line</p>
+            <p class="fnt-bold">Location</p>
+            <hr>
+            </div>
+            <div class="program-info">
+            <p class="fnt-bold fnt20">#:## pm - #:## pm</p>
+            <p>Information 1 line</p>
+            <p class="fnt-bold">Location</p>
+            <hr>
+            </div>
+            <div class="program-info">
+            <p class="fnt-bold fnt20">#:## pm - #:## pm</p>
+            <p>Information 1 line</p>
+            <p class="fnt-bold">Location</p>
+            </div>
+        </div>
+    </section>
+    <!--left aligned one column-->
     
     <!--two column -->
     <section>
@@ -270,31 +291,7 @@
     </section>
     <!--/four column-->
 
-    <!--left aligned one column-->
-    <section class="one-col-left">
-        <div>
-        <h2>PROGRAM</h2>
-            <div class="program-info">
-            <p class="fnt-bold">#:## pm - #:## pm</p>
-            <p>Information 1 line</p>
-            <p class="fnt-bold">Location</p>
-            <hr>
-            </div>
-            <div class="program-info">
-            <p class="fnt-bold">#:## pm - #:## pm</p>
-            <p>Information 1 line</p>
-            <p class="fnt-bold">Location</p>
-            <hr>
-            </div>
-            <div class="program-info">
-            <p class="fnt-bold">#:## pm - #:## pm</p>
-            <p>Information 1 line</p>
-            <p class="fnt-bold">Location</p>
-            </div>
-        </div>
-    </section>
-    <!--left aligned one column-->
-
+    
     <!--two column google map -->
     <section>
     <div class="two-col-map">
@@ -351,7 +348,7 @@
     <section class="bottom-header">
     <div class="bottom-headline">
         
-        <h1>JOIN US!</h1>
+        <h2>Join Us!</h2>
         <a href="#hidden-form-b"><button id="rsvp-btn" @click="showForm = true" v-bind:class="{'content-open': showForm }">RSVP</button></a>
         
     </div>
