@@ -113,14 +113,16 @@ header .headline div {
   margin:0 auto;
   max-width: 800px;
   padding:0 5%;
+  text-align: center;
 }
-
+header img {margin:0 auto;}
+header .headline h1 {text-align: center;}
 header .header-p {
   color:#fff;
   font-size:20px;
   line-height: 26px;
   padding:40px 0;
-  text-align: left;
+  text-align: center;
 }
 
 header button {
@@ -145,14 +147,9 @@ header button:hover {
 }
 
 @media screen and (min-width: 480px){
-  header .headline div {
-  text-align: center;
-  padding:0 3%;
-  }
-  header img {margin:0 auto;}
-  header .headline h1 {text-align: center;}
+  header .headline div {padding:0 3%;}
   header h1 {font-size:44px;line-height: 52px;}
-  header .header-p {text-align: center;font-size:30px;
+  header .header-p {font-size:30px;
   line-height: 36px;}
   header button {
   margin-bottom: 90px;
@@ -174,14 +171,13 @@ header button:hover {
 }
 .hidden-form h2 {
   margin-bottom:0;
-  text-align: left;
 }
 .hidden-form .subtext {
   color:#666;
   font-size: 15px;
   line-height: 21px;
   padding-bottom:40px;
-  text-align: left;
+  text-align: center;
 }
 
 .form-container {
@@ -232,6 +228,8 @@ a.submitbtn {
   position:relative;
   padding: 5px 76px;
   text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance:none;
 }
 
 input.submitbtn:hover,
@@ -261,12 +259,6 @@ a.submitbtn:hover {
   .hidden-form {
   margin:75px auto;
   }
-  .hidden-form h2 {
-  text-align: center;
-  }
-  .hidden-form .subtext {
-    text-align: center;
-  }
 }
 
 /*________ 1 COLUMN CENTERED SECTION ______________*/
@@ -283,7 +275,7 @@ a.submitbtn:hover {
 .one-col h2 {
   color:#d22323;
 }
-.one-col-h2, .one-col-p {
+.one-col-p {
     text-align: left;
 }
 .one-col-p {
